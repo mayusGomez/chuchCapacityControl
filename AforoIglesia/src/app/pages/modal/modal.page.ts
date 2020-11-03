@@ -68,9 +68,7 @@ export class ModalPage implements OnInit {
       this.site,
       this.date,
       this.hours
-    ).pipe(
-      take(1)
-    ).subscribe( data => {
+    ).then( data => {
 
       if (data.code == 0) {
         toast.present();
