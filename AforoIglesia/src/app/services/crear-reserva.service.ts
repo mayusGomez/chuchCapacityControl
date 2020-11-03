@@ -83,6 +83,8 @@ export class CrearReservaService {
     console.log("crearReserva");
     console.log("data.date:", data.date);
     data.day = "" + (new Date(data.date)).getDay();
+    data.date = data.date.split("T")[0]
+    console.log("data.date with split:", data.date);
     data.date = data.date.replace(/-/g,"");
 
     console.log("data.day:", data.day);

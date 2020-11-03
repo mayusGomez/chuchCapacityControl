@@ -23,6 +23,7 @@ import { AngularFireFunctionsModule, REGION, ORIGIN } from '@angular/fire/functi
 
 
 import { Store } from './store';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 
@@ -42,7 +43,8 @@ import { Store } from './store';
 		AngularFireAuthModule,
 		AngularFireStorageModule,
     AppRoutingModule,
-    AngularFireFunctionsModule
+    AngularFireFunctionsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     StatusBar,
