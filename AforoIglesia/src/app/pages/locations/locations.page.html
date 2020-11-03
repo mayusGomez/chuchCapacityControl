@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Ubicaciones</ion-title>
+
+    <!-- 
+    <ion-buttons slot="end">
+			<ion-button (click)="openFilter()">
+				<ion-icon slot="icon-only" name="funnel"></ion-icon>
+			</ion-button>
+    </ion-buttons>
+    -->
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card *ngFor="let location of locationService.locations | async">
+    <ion-card-header (click)="openDetail(location)">
+      <ion-card-subtitle>{{ location.subtitulo }}</ion-card-subtitle>
+      <ion-card-title>{{ location.nombre }}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{ location.descripcion }}
+    </ion-card-content>
+  </ion-card> 
+
+</ion-content>

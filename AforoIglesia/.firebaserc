@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "aforoiglesia": {
+      "hosting": {
+        "app": [
+          "aforoiglesia"
+        ]
+      }
+    }
+  }
+}

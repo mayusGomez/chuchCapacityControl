@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Ubicaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-item>
+    <ion-label>Seleccionar Fecha</ion-label>
+    <ion-datetime min="2020-10" max="2030" (ionChange)="filterDate($event)"
+      displayFormat="DD MMM YYYY"
+      monthShortNames="Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic"></ion-datetime>
+  </ion-item>
+
+<ion-content >
+  <ion-list>
+      <ion-item-sliding *ngFor="let item of scheduleList.items;let indexOfelement=index;" [attr.track]="item.available">
+        <ion-item color="{{ item.col }}">
+          <ion-label [ngClass]="item.available"  (click)="selectItem(item, indexOfelement)" >
+            <h3>{{ item.hora.substr(0,2)}}:{{ item.hora.substr(2,2)}}</h3>
+            <p>
+              {{item.total}} de {{ schedule.aforo }}
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab *ngIf="selectedTimes.length > 0" vertical="bottom" horizontal="end" slot="fixed" (click)="presentModal()">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+</ion-content>

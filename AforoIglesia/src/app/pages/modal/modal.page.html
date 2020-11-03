@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Formulario de Reserva</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding class="auth-page">
+
+  <form [formGroup]="programar">
+    <ion-list>
+
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input formControlName="name" type="text"
+        [class.invalid]="!programar.controls['name'].valid &&
+      programar.controls['name'].touched">
+      </ion-input>
+    </ion-item>
+
+    <ion-item color="danger" *ngIf="!programar.controls['name'].valid &&
+           programar.controls['name'].touched">
+      <ion-label>Ingrese su nombre</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Numero de Documento</ion-label>
+      <ion-input formControlName="document_number" type="number"
+        [class.invalid]="!programar.controls['document_number'].valid&& programar.controls['document_number'].touched">
+      </ion-input>
+    </ion-item>
+
+    <ion-item color="danger"  *ngIf="!programar.controls['document_number'].valid
+          && programar.controls['document_number'].touched">
+      <ion-label>Ingrese su número de documento</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Numero de teléfono</ion-label>
+      <ion-input formControlName="phone" type="text"
+        [class.invalid]="!programar.controls['phone'].valid&& programar.controls['phone'].touched">
+      </ion-input>
+    </ion-item>
+
+    <ion-item color="danger"  *ngIf="!programar.controls['phone'].valid
+          && programar.controls['phone'].touched">
+      <ion-label>Por favor ingrese su numero de telefono</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Dirección</ion-label>
+      <ion-input formControlName="address" type="text"
+        [class.invalid]="!programar.controls['address'].valid&& programar.controls['address'].touched">
+      </ion-input>
+    </ion-item>
+
+    <ion-item color="danger"  *ngIf="!programar.controls['address'].valid
+          && programar.controls['address'].touched">
+      <ion-label>Por favor ingrese su dirección</ion-label>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-row>
+    <ion-col>
+      <ion-button [disabled]="!programar.valid" expand="block" (click)="programarReserva()">Programar</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button color="light" expand="block" (click)="closeModal()">Cancelar</ion-button>
+    </ion-col>
+  </ion-row>
+
+  </form>
+
+</ion-content>
+
+
+

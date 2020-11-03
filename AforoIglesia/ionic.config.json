@@ -1,0 +1,7 @@
+{
+  "name": "AforoIglesia",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

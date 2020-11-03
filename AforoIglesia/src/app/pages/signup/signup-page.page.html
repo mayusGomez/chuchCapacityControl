@@ -1,0 +1,111 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Crear Cuenta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="auth-page">
+  <form [formGroup]="signupForm">
+
+    <ion-list>
+
+    <ion-item>
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input formControlName="name" type="text" placeholder="Ingrese su nombre completo"
+          [class.invalid]="!signupForm.controls['name'].valid && signupForm.controls['name'].touched">
+        </ion-input>
+      </ion-item>
+      <ion-item color="danger" *ngIf="!signupForm.controls['name'].valid &&
+            signupForm.controls['name'].touched">
+        <ion-label>Por favor ingrese nombre</ion-label>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="stacked">Documento</ion-label>
+        <ion-input formControlName="document_number" type="text" placeholder="Ingrese su documento"
+          [class.invalid]="!signupForm.controls['document_number'].valid && signupForm.controls['document_number'].touched">
+        </ion-input>
+      </ion-item>
+      <ion-item color="danger" *ngIf="!signupForm.controls['document_number'].valid &&
+            signupForm.controls['document_number'].touched">
+        <ion-label>Por favor ingrese documento de identificacion</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input formControlName="email" type="email" placeholder="Ingrese su correo electrónico"
+        [class.invalid]="!signupForm.controls['email'].valid && signupForm.controls['email'].touched">
+      </ion-input>
+    </ion-item>
+    <ion-item color="danger" *ngIf="!signupForm.controls['email'].valid &&
+         signupForm.controls['email'].touched">
+      <ion-label>Por favor ingrese una correo electrónico</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Telefono</ion-label>
+      <ion-input formControlName="phone" type="text" placeholder="Ingrese su telefono"
+        [class.invalid]="!signupForm.controls['phone'].valid && signupForm.controls['phone'].touched">
+      </ion-input>
+    </ion-item>
+    <ion-item color="danger" *ngIf="!signupForm.controls['phone'].valid &&
+          signupForm.controls['phone'].touched">
+      <ion-label>Por favor ingrese numero telefonico</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Direccion</ion-label>
+      <ion-input formControlName="address" type="text" placeholder="Ingrese su direccion"
+        [class.invalid]="!signupForm.controls['address'].valid && signupForm.controls['address'].touched">
+      </ion-input>
+    </ion-item>
+    <ion-item color="danger" *ngIf="!signupForm.controls['address'].valid &&
+          signupForm.controls['address'].touched">
+      <ion-label>Por favor ingrese dirección</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Fecha Nacimiento (AAAMMDD)</ion-label>
+      <ion-input formControlName="birth_date" type="text" placeholder="Ingrese su fecha nacimiento"
+        [class.invalid]="!signupForm.controls['birth_date'].valid && signupForm.controls['birth_date'].touched">
+      </ion-input>
+    </ion-item>
+    <ion-item color="danger" *ngIf="!signupForm.controls['birth_date'].valid &&
+          signupForm.controls['birth_date'].touched">
+      <ion-label>Por favor su fecha de nacimiento</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Contraseña</ion-label>
+      <ion-input formControlName="password" type="password" placeholder="Ingrese su contraseña"
+        [class.invalid]="!signupForm.controls['password'].valid&& signupForm.controls['password'].touched">
+      </ion-input>
+    </ion-item>
+    <ion-item color="danger" *ngIf="!signupForm.controls['password'].valid
+        && signupForm.controls['password'].touched">
+      <ion-label>Su contraseña debe contener mínimo 6 caracteres</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Confirme contraseña</ion-label>
+      <ion-input formControlName="confirm_password" type="password" placeholder="Ingrese de nuevo su contraseña"
+        [class.invalid]="!signupForm.controls['confirm_password'].valid&& signupForm.controls['confirm_password'].touched">
+      </ion-input>
+    </ion-item>
+    <ion-item color="danger" *ngIf="!signupForm.controls['confirm_password'].valid
+        && signupForm.controls['confirm_password'].touched">
+      <ion-label>No corresponde con la contraseña ingresada</ion-label>
+    </ion-item>
+
+  </ion-list>
+
+    <ion-button (click)="signupUser(signupForm)" expand="block" [disabled]="!signupForm.valid">
+      Crear cuenta
+    </ion-button>
+  </form>
+
+</ion-content>

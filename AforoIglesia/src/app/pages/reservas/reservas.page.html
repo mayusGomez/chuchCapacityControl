@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Reservas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-item>
+    <ion-label>Seleccionar Fecha</ion-label>
+    <ion-datetime min="2020-10" max="2030" (ionChange)="filterDate($event)"
+      displayFormat="DD MMM YYYY"
+      monthShortNames="Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic"></ion-datetime>
+  </ion-item>
+
+<ion-content >
+
+  <ion-item-group *ngFor="let sch of scheduled ">
+
+    <ion-item-divider>
+      <ion-label>{{ sch.key.substr(0,2) }}:{{ sch.key.substr(2,4) }}</ion-label>
+    </ion-item-divider>
+  
+    <ion-item *ngFor="let usr of sch.users">
+      <ion-label>
+        <p><b>Nombre:</b>{{ usr.name}}</p>
+        <p><b>Documento:</b>{{ usr.document}}</p>
+        <p><b>Telefono:</b>{{ usr.phone}}</p>
+        <p><b>Direccion:</b>{{ usr.address}}</p>
+      </ion-label>
+    </ion-item>
+
+
+  </ion-item-group>
+  
+  
+  
+</ion-content>
